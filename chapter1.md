@@ -282,7 +282,7 @@ diamonds <- diamonds
 names(diamonds)
 
 # Create a series of facet_grid ggplots.
-ggplot(diamonds, aes(x=carat, y=price, color=cut)) + geom_point() + facet_grid(color ~ clarity)
+#ggplot(diamonds, aes(x=carat, y=price, color=cut)) + geom_point() + facet_grid(color ~ clarity)
 
 # Create a column price_level.
 diamonds$price_level <- as.numeric(cut(diamonds$price,seq(from = 0, to = 50000, by = 4000)))
@@ -315,7 +315,7 @@ test_student_typed("names(diamonds)", not_typed_msg = "Did you forget to check t
 
 # second instruction
 #test_output_contains("ggplot(diamonds, aes(x=carat, y=price, color=cut)) + geom_point() + facet_grid(color ~ clarity)", #incorrect_msg = "Take a look at your code for the facet plot.")
-test_function("ggplot")
+#test_function("ggplot")
 
 # third instruction
 # Create a column price_level.
