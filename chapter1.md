@@ -1,4 +1,3 @@
-
 ---
 title       : Insert the chapter title here
 description : Insert the chapter description here
@@ -165,57 +164,43 @@ success_msg("Good work!")
 --- type:NormalExercise lang:r xp:100 skills:1
 ## Diamonds 3
 
-In the previous exercise, you saw a dataset about movies. In this exercise, we'll have a look at yet another dataset about movies!
+In the previous exercise, we looked at the stucture of the data, but now let's look at some graphs of the data. 
 
-A dataset with a selection of movies, `movie_selection`, is available in the workspace.
+The diamonds dataset and ggplot2 are available in the workspace.
 
 *** =instructions
-- Check out the structure of `movie_selection`.
-- Select movies with a rating of 5 or higher. Assign the result to `good_movies`.
-- Use `plot()` to  plot `good_movies$Run` on the x-axis, `good_movies$Rating` on the y-axis and set `col` to `good_movies$Genre`.
+- Create two histograms from the diamond dataset. 
+- Make the first be a count of the diamonds in terms of their price.
+- Make the second be a count of the diamonds in terms of crat size. 
+
 
 *** =hint
-- Use `str()` for the first instruction.
-- For the second instruction, you should use `...[movie_selection$Rating >= 5, ]`.
-- For the plot, use `plot(x = ..., y = ..., col = ...)`. 
+- Use `qplot` to render the graphs.
+
 
 *** =pre_exercise_code
 ```{r}
 # Pre-load a package in the workspace
-library(MindOnStats)
-
-# You can prepare the data before the student starts:
-data(Movies)
-movie_selection <- Movies[Movies$Genre %in% c("action", "animated", "comedy"),c("Genre", "Rating", "Run")]
-
-# You can also clean up data so that it's not available in the student's workspace anymore:
-rm(Movies)
+library(ggplot2)
+diamonds <- diamonds
 ```
 
 *** =sample_code
 ```{r}
-# movie_selection is available in your workspace
+# Create a histogram of the price of the diamonds in the dataset
+(price, data=diamonds, geom="histogram", bins = 20)
 
-# Check out the structure of movie_selection
-
-# Select movies that have a rating of 5 or higher: good_movies
-
-# Plot Run (i.e. run time) on the x axis, Rating on the y axis, and set the color using Genre
-
+# Create a histogram of the carat sizes of the diamonds in the dataset
+(price, data=diamonds, geom="histogram", bins = 20)
 ```
 
 *** =solution
 ```{r}
-# movie_selection is available in your workspace
+# Create a histogram of the price of the diamonds in the dataset
+qplot(price, data=diamonds, geom="histogram", bins = 20)
 
-# Check out the structure of movie_selection
-str(movie_selection)
-
-# Select movies that have a rating of 5 or higher: good_movies
-good_movies <- movie_selection[movie_selection$Rating >= 5, ]
-
-# Plot Run (i.e. run time) on the x axis, Rating on the y axis, and set the color using Genre
-plot(good_movies$Run, good_movies$Rating, col = good_movies$Genre)
+# Create a histogram of the carat sizes of the diamonds in the dataset
+qplot(carat, data=diamonds, geom="histogram", bins = 20)
 ```
 
 *** =sct
@@ -629,7 +614,3 @@ test_error()
 # Final message the student will see upon completing the exercise
 success_msg("Good work!")
 ```
-
-
-
-
