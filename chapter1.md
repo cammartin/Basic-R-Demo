@@ -206,7 +206,7 @@ qplot(carat, data=diamonds, geom="histogram", bins = 20)
 # Test whether the function str is called with the correct argument, object
 # If it is not called, print something informative
 # If it is called, but called incorrectly, print something else
-#test_function("qplot", args = c("data", "geom", "bins"),
+test_function("qplot", args = c("data", "geom", "bins"),
               not_called_msg = "You didn't call `qplot()`!",
               incorrect_msg = "You didn't call `qplot(data = ...,geom = ..., bins= ...)` with the correct argument, `data = ...,geom = ..., bins= ...`.")
 
