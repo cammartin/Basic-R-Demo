@@ -258,8 +258,7 @@ diamonds <- diamonds
 #ggplot(diamonds, aes(x=, y=, color=)) + geom_point() + facet_grid(color ~ )
 
 # Create a column price_level.
-#diamonds$price_level <- as.numeric(cut(diamonds$price, 
-                                       seq(from = 0, to = 50000, by = 4000)))
+#diamonds$price_level <- as.numeric(cut(diamonds$price, seq(from = 0, to = 50000, by = 4000)))
 
 # Show that you have successfully added the price_level column.
 #names(diamonds)
