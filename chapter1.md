@@ -244,7 +244,9 @@ success_msg("Good work!")
 
 
 *** =instructions
-- Check out the structure of `movie_selection`.
+- Create a series of facet_grid ggplots with the price on the y axis, carat size on the x axis and the cut as the color.
+- Because there are two variables use `ggplot` with the `geom_point` extension.
+- Use the diamond clarity as the variable to separate the data into subplots.
 
 
 *** =hint
@@ -264,44 +266,52 @@ diamonds <- diamonds
 # Take a look at the column names
 #names(diamonds)
 
-# Create a series of facet_grid ggplots with the price on the y axis, carat size on the x axis and the cut as the color.
-# Because there are two variables use `ggplot` with the `geom_point` extension.
-# Use the diamond clarity as the variable to separate the data into subplots.
+# Create a series of facet_grid ggplots.
 ggplot(diamonds, aes(x=, y=, color=)) + geom_point() + facet_grid(color ~ )
 
-diamonds$price_level <- as.numeric(cut(diamonds$price, 
+# Create a colum price_level.
+#diamonds$price_level <- as.numeric(cut(diamonds$price, 
                                        seq(from = 0, to = 50000, by = 4000)))
-names(diamonds)
 
-diamonds$price <- NULL
+# Show that you have successfully added the price_level column by displaying the column names
+#names(diamonds)
 
-names(diamonds)
+# We won't need the price column anymore, remove it from the dataset
+#diamonds$price <- NULL
 
-# Plot Run (i.e. run time) on the x axis, Rating on the y axis, and set the color using Genre
+# Show that you have successfully removed the price_level column by displaying the column names
+#names(diamonds)
 
+# Find the maximum price level and make a histogram using `qplot` and price_level 
+max(diamonds$)
+(price_level, data=diamonds, geom="histogram", bins = 5)
 ```
 
 *** =solution
 ```{r}
 # The dataset diamonds and the ggplot2 package are available in your workspace
 # Take a look at the column names
-names(diamonds)
+#names(diamonds)
 
-# Create a series of facet_grid ggplots with the price on the y axis, carat size on the x axis and the cut as the color.
-# Because there are two variables use `ggplot` with the `geom_point` extension.
-# Use the diamond clarity as the variable to separate the data into subplots.
-ggplot(diamonds, aes(x=carat, y=price, color=)) + geom_point() + facet_grid(color ~ clarity)
+# Create a series of facet_grid ggplots.
+ggplot(diamonds, aes(x=, y=, color=)) + geom_point() + facet_grid(color ~ )
 
+# Create a colum price_level.
 diamonds$price_level <- as.numeric(cut(diamonds$price, 
                                        seq(from = 0, to = 50000, by = 4000)))
+
+# Show that you have successfully added the price_level column by displaying the column names.
 names(diamonds)
 
+# We won't need the price column anymore, remove it from the dataset.
 diamonds$price <- NULL
 
+# Show that you have successfully removed the price_level column by displaying the column names.
 names(diamonds)
 
-# Plot Run (i.e. run time) on the x axis, Rating on the y axis, and set the color using Genre
-
+# Find the maximum price level and make a histogram using `qplot` and price_level.
+max(diamonds$price_level)
+qplot(price_level, data=diamonds, geom="histogram", bins = 5)
 ```
 
 *** =sct
