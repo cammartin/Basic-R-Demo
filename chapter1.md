@@ -139,9 +139,9 @@ head(diamonds)
               not_called_msg = "You didn't call `summary()`!",
               incorrect_msg = "You didn't call `summary(object = ...)` with the correct argument, `object`.")
 
- test_function("head", 
-              not_called_msg = "You didn't call `head()`!",
-              incorrect_msg = "You didn't call `head(object = ...)` with the correct argument, `object`.")
+#test_function("head", 
+#              not_called_msg = "You didn't call `head()`!",
+#              incorrect_msg = "You didn't call `head(object = ...)` with the correct argument, `object`.")
 test_output_contains("head(diamonds)", incorrect_msg = "Something is wrong with `head()`. Take another look at the instruction.")
 
 
