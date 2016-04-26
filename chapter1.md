@@ -63,7 +63,12 @@ test_function("library",
 # I would like to add the same sct function to determine whether the student loaded the ggplot2 library
 # Using the same fucntion as the str below it did not work
 
-
+# Test the object, diamonds
+# Notice that we didn't define any feedback here, this will cause automatically 
+# generated feedback to be given to the student in case of an incorrect submission
+ test_object("diamonds")
+ 
+ 
 # Test whether the function str is called with the correct argument, object
 # If it is not called, print something informative
 # If it is called, but called incorrectly, print something else
@@ -71,19 +76,6 @@ test_function("library",
               not_called_msg = "You didn't call `str()`!",
               incorrect_msg = "You didn't call `str(object = ...)` with the correct argument, `object`.")
 
-# Test the object, diamonds
-# Notice that we didn't define any feedback here, this will cause automatically 
-# generated feedback to be given to the student in case of an incorrect submission
- test_object("diamonds")
-
-# Test whether the student correctly used plot()
-# Again, we use the automatically generated feedback here
-# test_function("plot", args = "x")
-# test_function("plot", args = "y")
-# test_function("plot", args = "col")
-
-# Alternativeley, you can use test_function() like this
-# test_function("plot", args = c("x", "y", "col"))
 
 # It's always smart to include the following line of code at the end of your SCTs
 # It will check whether executing the student's code resulted in an error, 
