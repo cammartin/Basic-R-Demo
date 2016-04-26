@@ -6,7 +6,7 @@ attachments :
 
 
 --- type:NormalExercise lang:r xp:100 skills:1
-## More movies 2
+## More movies 
 
 In the previous exercise, you saw a dataset about movies. In this exercise, we'll have a look at yet another dataset about movies!
 
@@ -100,7 +100,7 @@ success_msg("Good work!")
 ```
 
 --- type:NormalExercise lang:r xp:100 skills:1
-## More movies two
+## More movies 2
 
 In the previous exercise, you saw a dataset about movies. In this exercise, we'll have a look at yet another dataset about movies!
 
