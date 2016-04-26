@@ -95,7 +95,7 @@ success_msg("Good work!")
 ```
 
 --- type:NormalExercise lang:r xp:100 skills:1
-## Diamonds 2
+## Cost of diamonds 2
 
 In the last exercise, you saw a dataset about diamonds. In this exercise, we will look at the same dataset in a different way!
 
@@ -162,7 +162,7 @@ success_msg("Good work!")
 ```
 
 --- type:NormalExercise lang:r xp:100 skills:1
-## Diamonds 3
+## Cost of diamonds 3
 
 In the previous exercise, we looked at the stucture of the data, but now let's look at some graphs of the data. 
 
@@ -212,7 +212,7 @@ qplot(carat, data=diamonds, geom="histogram", bins = 20)
 # Test whether the function str is called with the correct argument, object
 # If it is not called, print something informative
 # If it is called, but called incorrectly, print something else
-test_function("str", args = "object",
+#test_function("str", args = "object",
               not_called_msg = "You didn't call `str()`!",
               incorrect_msg = "You didn't call `str(object = ...)` with the correct argument, `object`.")
 
@@ -223,7 +223,7 @@ test_object("good_movies")
 
 # Test whether the student correctly used plot()
 # Again, we use the automatically generated feedback here
-test_function("plot", args = "x")
+test_function("plot", args = c("x", "y", "col"))
 test_function("plot", args = "y")
 test_function("plot", args = "col")
 
@@ -240,44 +240,42 @@ success_msg("Good work!")
 ```
 
 --- type:NormalExercise lang:r xp:100 skills:1
-## Diamonds 4
+## Cost of diamonds 4
 
-In the previous exercise, you saw a dataset about movies. In this exercise, we'll have a look at yet another dataset about movies!
-
-A dataset with a selection of movies, `movie_selection`, is available in the workspace.
 
 *** =instructions
 - Check out the structure of `movie_selection`.
-- Select movies with a rating of 5 or higher. Assign the result to `good_movies`.
-- Use `plot()` to  plot `good_movies$Run` on the x-axis, `good_movies$Rating` on the y-axis and set `col` to `good_movies$Genre`.
+
 
 *** =hint
 - Use `str()` for the first instruction.
-- For the second instruction, you should use `...[movie_selection$Rating >= 5, ]`.
-- For the plot, use `plot(x = ..., y = ..., col = ...)`. 
+
 
 *** =pre_exercise_code
 ```{r}
 # Pre-load a package in the workspace
-library(MindOnStats)
-
-# You can prepare the data before the student starts:
-data(Movies)
-movie_selection <- Movies[Movies$Genre %in% c("action", "animated", "comedy"),c("Genre", "Rating", "Run")]
-
-# You can also clean up data so that it's not available in the student's workspace anymore:
-rm(Movies)
+library(ggplot2)
+diamonds <- diamonds
 ```
 
 *** =sample_code
 ```{r}
-# movie_selection is available in your workspace
+# The dataset diamonds and the ggplot2 package are available in your workspace
+# Take a look at the column names
+#names(diamonds)
 
-# Check out the structure of movie_selection
+# Create a series of facet_grid ggplots with the price on the y axis, carat size on the x axis and the cut as the color.
+# Because there are two variables use `ggplot` with the `geom_point` extension.
+# Use the diamond clarity as the variable to separate the data into subplots.
+ggplot(diamonds, aes(x=, y=, color=)) + geom_point() + facet_grid(color ~ )
 
+diamonds$price_level <- as.numeric(cut(diamonds$price, 
+                                       seq(from = 0, to = 50000, by = 4000)))
+names(diamonds)
 
-# Select movies that have a rating of 5 or higher: good_movies
+diamonds$price <- NULL
 
+names(diamonds)
 
 # Plot Run (i.e. run time) on the x axis, Rating on the y axis, and set the color using Genre
 
@@ -285,16 +283,25 @@ rm(Movies)
 
 *** =solution
 ```{r}
-# movie_selection is available in your workspace
+# The dataset diamonds and the ggplot2 package are available in your workspace
+# Take a look at the column names
+names(diamonds)
 
-# Check out the structure of movie_selection
-str(movie_selection)
+# Create a series of facet_grid ggplots with the price on the y axis, carat size on the x axis and the cut as the color.
+# Because there are two variables use `ggplot` with the `geom_point` extension.
+# Use the diamond clarity as the variable to separate the data into subplots.
+ggplot(diamonds, aes(x=carat, y=price, color=)) + geom_point() + facet_grid(color ~ clarity)
 
-# Select movies that have a rating of 5 or higher: good_movies
-good_movies <- movie_selection[movie_selection$Rating >= 5, ]
+diamonds$price_level <- as.numeric(cut(diamonds$price, 
+                                       seq(from = 0, to = 50000, by = 4000)))
+names(diamonds)
+
+diamonds$price <- NULL
+
+names(diamonds)
 
 # Plot Run (i.e. run time) on the x axis, Rating on the y axis, and set the color using Genre
-plot(good_movies$Run, good_movies$Rating, col = good_movies$Genre)
+
 ```
 
 *** =sct
