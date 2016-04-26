@@ -210,9 +210,9 @@ test_function("qplot", args = c("data", "geom", "bins"),
               not_called_msg = "You didn't call `qplot()`!",
               incorrect_msg = "You didn't call `qplot(data = ...,geom = ..., bins= ...)` with the correct argument, `data = ...,geom = ..., bins= ...`.")
 
-test_student_typed("qplot(price, data=diamonds, geom="histogram", bins = 20)", not_typed_msg = "Something is wrong with your qplot. Take another look at the instruction.")
+test_student_typed("qplot(price, data=diamonds, geom='histogram', bins = 20)", not_typed_msg = "Something is wrong with your qplot. Take another look at the instruction.")
 
-test_student_typed("qplot(carat, data=diamonds, geom="histogram", bins = 20)", not_typed_msg = "Something is wrong with your qplot. Take another look at the instruction.")
+test_student_typed("qplot(carat, data=diamonds, geom='histogram', bins = 20)", not_typed_msg = "Something is wrong with your qplot. Take another look at the instruction.")
 
 # It's always smart to include the following line of code at the end of your SCTs
 # It will check whether executing the student's code resulted in an error, 
