@@ -143,6 +143,7 @@ head(diamonds)
 #              not_called_msg = "You didn't call `head()`!",
 #              incorrect_msg = "You didn't call `head(object = ...)` with the correct argument, `object`.")
 test_output_contains("head(diamonds)", incorrect_msg = "Something is wrong with `head()`. Take another look at the instruction.")
+test_student_typed("head(diamonds)", not_typed_msg = "Something is wrong with `head()`. Take another look at the instruction.")
 
 
 # It's always smart to include the following line of code at the end of your SCTs
