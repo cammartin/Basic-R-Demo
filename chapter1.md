@@ -11,10 +11,13 @@ attachments :
 In this exercise, we will use the dataset diamonds within the ggplot2 package. Using a randomForest will attempt to predict the cost of a diamond using a some of the diamond characterists found in the dataset.
 
 *** =instructions
+- Load `ggplot2` into the environment.
+- Assign `diamonds` dataset. 
 - Check out the structure of diamonds.
 
 *** =hint
 - Use `str()` to see the structure of diamonds.
+- Remember to assign the `diamonds` dataset.
  
 
 *** =pre_exercise_code
