@@ -175,7 +175,7 @@ The diamonds dataset and ggplot2 are available in the workspace.
 
 
 *** =hint
-- Use `qplot` to render the graphs.
+- Add `qplot` to render the graphs.
 
 
 *** =pre_exercise_code
@@ -188,10 +188,10 @@ diamonds <- diamonds
 *** =sample_code
 ```{r}
 # Create a histogram of the price of the diamonds in the dataset
-(price, data=diamonds, geom="histogram", bins = 20)
+#(price, data=diamonds, geom="histogram", bins = 20)
 
 # Create a histogram of the carat sizes of the diamonds in the dataset
-(price, data=diamonds, geom="histogram", bins = 20)
+#(price, data=diamonds, geom="histogram", bins = 20)
 ```
 
 *** =solution
@@ -247,10 +247,13 @@ success_msg("Good work!")
 - Create a series of facet_grid ggplots with the price on the y axis, carat size on the x axis and the cut as the color.
 - Because there are two variables use `ggplot` with the `geom_point` extension.
 - Use the diamond clarity as the variable to separate the data into subplots.
+- Create new column categorical `price_level`
+- Remove old `price`column
+- Create `qplot` histogram for new `price_level` column
 
 
 *** =hint
-- Use `str()` for the first instruction.
+- Use `ggplot` for the first instruction.
 
 
 *** =pre_exercise_code
@@ -262,54 +265,56 @@ diamonds <- diamonds
 
 *** =sample_code
 ```{r}
-# The dataset diamonds and the ggplot2 package are available in your workspace
-# Take a look at the column names
+# The dataset diamonds and the ggplot2 package are available in your workspace.
+
+# Display the column names.
 #names(diamonds)
 
 # Create a series of facet_grid ggplots.
-ggplot(diamonds, aes(x=, y=, color=)) + geom_point() + facet_grid(color ~ )
+#ggplot(diamonds, aes(x=, y=, color=)) + geom_point() + facet_grid(color ~ )
 
 # Create a colum price_level.
 #diamonds$price_level <- as.numeric(cut(diamonds$price, 
                                        seq(from = 0, to = 50000, by = 4000)))
 
-# Show that you have successfully added the price_level column by displaying the column names
+# Show that you have successfully added the price_level column.
 #names(diamonds)
 
-# We won't need the price column anymore, remove it from the dataset
+# We won't need the price column anymore, remove it from the dataset.
 #diamonds$price <- NULL
 
-# Show that you have successfully removed the price_level column by displaying the column names
+# Show that you have successfully removed the price_level column.
 #names(diamonds)
 
 # Find the maximum price level and make a histogram using `qplot` and price_level 
-max(diamonds$)
-(price_level, data=diamonds, geom="histogram", bins = 5)
+#max(diamonds$)
+#(price_level, data=diamonds, geom="histogram", bins = 5)
 ```
 
 *** =solution
 ```{r}
-# The dataset diamonds and the ggplot2 package are available in your workspace
-# Take a look at the column names
+# The dataset diamonds and the ggplot2 package are available in your workspace.
+
+# Display the column names.
 #names(diamonds)
 
 # Create a series of facet_grid ggplots.
-ggplot(diamonds, aes(x=, y=, color=)) + geom_point() + facet_grid(color ~ )
+ggplot(diamonds, aes(x=carat, y=price, color=cut)) + geom_point() + facet_grid(color ~ clarity)
 
 # Create a colum price_level.
 diamonds$price_level <- as.numeric(cut(diamonds$price, 
                                        seq(from = 0, to = 50000, by = 4000)))
 
-# Show that you have successfully added the price_level column by displaying the column names.
+# Show that you have successfully added the price_level column.
 names(diamonds)
 
 # We won't need the price column anymore, remove it from the dataset.
 diamonds$price <- NULL
 
-# Show that you have successfully removed the price_level column by displaying the column names.
+# Show that you have successfully removed the price_level column.
 names(diamonds)
 
-# Find the maximum price level and make a histogram using `qplot` and price_level.
+# Find the maximum price level and make a histogram using `qplot` and price_level 
 max(diamonds$price_level)
 qplot(price_level, data=diamonds, geom="histogram", bins = 5)
 ```
