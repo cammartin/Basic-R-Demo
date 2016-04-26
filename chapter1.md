@@ -67,14 +67,14 @@ str(diamonds)
 # Test whether the function str is called with the correct argument, object
 # If it is not called, print something informative
 # If it is called, but called incorrectly, print something else
-# test_function("str", args = "object",
-#              not_called_msg = "You didn't call `str()`!",
-#              incorrect_msg = "You didn't call `str(object = ...)` with the correct argument, `object`.")
+ test_function("str", args = "object",
+              not_called_msg = "You didn't call `str()`!",
+              incorrect_msg = "You didn't call `str(object = ...)` with the correct argument, `object`.")
 
-# Test the object, good_movies
+# Test the object, diamonds
 # Notice that we didn't define any feedback here, this will cause automatically 
 # generated feedback to be given to the student in case of an incorrect submission
-# test_object("good_movies")
+ test_object("diamonds")
 
 # Test whether the student correctly used plot()
 # Again, we use the automatically generated feedback here
