@@ -35,31 +35,27 @@ library(ggplot2)
 
 *** =sample_code
 ```{r}
-# movie_selection is available in your workspace
+# Make ggplot2 available to use
+#library(ggplot2)
 
+# Make the dataset diamonds available to use
+#diamonds <- diamonds
 
-# Check out the structure of movie_selection
-
-
-# Select movies that have a rating of 5 or higher: good_movies
-
-
-# Plot Run (i.e. run time) on the x axis, Rating on the y axis, and set the color using Genre
-
+# Check out the structure of diamonds
+#str(diamonds)
 ```
 
 *** =solution
 ```{r}
-# movie_selection is available in your workspace
+# Make ggplot2 available to use
+library(ggplot2)
 
-# Check out the structure of movie_selection
-str(movie_selection)
+# Make the dataset diamonds available to use
+diamonds <- diamonds
 
-# Select movies that have a rating of 5 or higher: good_movies
-good_movies <- movie_selection[movie_selection$Rating >= 5, ]
+# Check out the structure of diamonds
+str(diamonds)
 
-# Plot Run (i.e. run time) on the x axis, Rating on the y axis, and set the color using Genre
-plot(good_movies$Run, good_movies$Rating, col = good_movies$Genre)
 ```
 
 *** =sct
