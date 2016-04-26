@@ -314,7 +314,6 @@ qplot(price_level, data=diamonds, geom="histogram", bins = 5)
 test_student_typed("names(diamonds)", not_typed_msg = "Did you forget to check the column names? Take another look at the instruction.")
 
 # second instruction
-ggplot(diamonds, aes(x=carat, y=price, color=cut)) + geom_point() + facet_grid(color ~ clarity)
 test_output_contains("ggplot(diamonds, aes(x=carat, y=price, color=cut)) + geom_point() + facet_grid(color ~ clarity)", incorrect_msg = "Take a look at your code for the facet plot.")
 test_function("ggplot")
 
