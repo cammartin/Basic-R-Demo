@@ -280,7 +280,7 @@ diamonds <- diamonds
 # The dataset diamonds and the ggplot2 package are available in your workspace.
 
 # Display the column names.
-#names(diamonds)
+names(diamonds)
 
 # Create a series of facet_grid ggplots.
 ggplot(diamonds, aes(x=carat, y=price, color=cut)) + geom_point() + facet_grid(color ~ clarity)
@@ -311,23 +311,14 @@ qplot(price_level, data=diamonds, geom="histogram", bins = 5)
 # Test whether the function str is called with the correct argument, object
 # If it is not called, print something informative
 # If it is called, but called incorrectly, print something else
-test_function("str", args = "object",
-              not_called_msg = "You didn't call `str()`!",
-              incorrect_msg = "You didn't call `str(object = ...)` with the correct argument, `object`.")
+# first instruction
+test_student_typed("names(diamonds)", not_typed_msg = "Did you forget to check the column names? Take another look at the instruction.")
 
-# Test the object, good_movies
-# Notice that we didn't define any feedback here, this will cause automatically 
-# generated feedback to be given to the student in case of an incorrect submission
-test_object("good_movies")
+# second instruction
+ggplot(diamonds, aes(x=carat, y=price, color=cut)) + geom_point() + facet_grid(color ~ clarity)
+test_output_contains("ggplot(diamonds, aes(x=carat, y=price, color=cut)) + geom_point() + facet_grid(color ~ clarity)", incorrect_msg = "Take a look at your code for the facet plot.")
+test_function("ggplot")
 
-# Test whether the student correctly used plot()
-# Again, we use the automatically generated feedback here
-test_function("plot", args = "x")
-test_function("plot", args = "y")
-test_function("plot", args = "col")
-
-# Alternativeley, you can use test_function() like this
-# test_function("plot", args = c("x", "y", "col"))
 
 # It's always smart to include the following line of code at the end of your SCTs
 # It will check whether executing the student's code resulted in an error, 
