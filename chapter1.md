@@ -257,7 +257,7 @@ diamonds <- diamonds
 # Create a series of facet_grid ggplots.
 #ggplot(diamonds, aes(x=, y=, color=)) + geom_point() + facet_grid(color ~ )
 
-# Create a colum price_level.
+# Create a column price_level.
 #diamonds$price_level <- as.numeric(cut(diamonds$price, 
                                        seq(from = 0, to = 50000, by = 4000)))
 
@@ -285,7 +285,7 @@ names(diamonds)
 # Create a series of facet_grid ggplots.
 ggplot(diamonds, aes(x=carat, y=price, color=cut)) + geom_point() + facet_grid(color ~ clarity)
 
-# Create a colum price_level.
+# Create a column price_level.
 diamonds$price_level <- as.numeric(cut(diamonds$price,seq(from = 0, to = 50000, by = 4000)))
 
 # Show that you have successfully added the price_level column.
@@ -318,6 +318,29 @@ test_student_typed("names(diamonds)", not_typed_msg = "Did you forget to check t
 ggplot(diamonds, aes(x=carat, y=price, color=cut)) + geom_point() + facet_grid(color ~ clarity)
 test_output_contains("ggplot(diamonds, aes(x=carat, y=price, color=cut)) + geom_point() + facet_grid(color ~ clarity)", incorrect_msg = "Take a look at your code for the facet plot.")
 test_function("ggplot")
+
+# third instruction
+# Create a column price_level.
+test_object("diamonds$price_level", incorrect_msg = "Something is wrong with your added column. Remember to use $ to call the new column name")
+
+# fourth instruction
+# Show that you have successfully added the price_level column.
+test_student_typed("names(diamonds)", not_typed_msg = "Did you forget to check the column names? Take another look at the instruction.")
+
+# fifth instruction
+# We won't need the price column anymore, remove it from the dataset.
+test_object("diamonds$price", incorrect_msg = "Something is wrong with your added column. Remember to use $ to call the new column name")
+
+# sixth instruction
+# Show that you have successfully removed the price_level column.
+test_student_typed("names(diamonds)", not_typed_msg = "Did you forget to check the column names? Take another look at the instruction.")
+
+# seventh instruction
+# Find the maximum price level and make a histogram using `qplot` and price_level 
+test_student_typed("max(diamonds$price_level)", not_typed_msg = "Did you forget to find the max price level? Take another look at the instruction.")
+test_function("qplot", args = c("data", "geom", "bins"),
+              not_called_msg = "You didn't call `qplot()`!",
+              incorrect_msg = "You didn't call `qplot(data = ...,geom = ..., bins= ...)` with the correct argument, `data = ...,geom = ..., bins= ...`.")
 
 
 # It's always smart to include the following line of code at the end of your SCTs
