@@ -57,9 +57,9 @@ str(diamonds)
 # The sct section defines the Submission Correctness Tests (SCTs) used to
 # evaluate the student's response. All functions used here are defined in the 
 # testwhat R package. Documentation can also be found at github.com/datacamp/testwhat/wiki
-#test_function("library", args = "object",
-#              not_called_msg = "You didn't call `library()`!",
-#              incorrect_msg = "You didn't call `library(object = ...)` with the correct argument, `object`.")
+test_function("library",
+              not_called_msg = "You didn't call `library()`!",
+              incorrect_msg = "You didn't call `library(object = ...)` with the correct argument, `object`.")
 # I would like to add the same sct function to determine whether the student loaded the ggplot2 library
 # Using the same fucntion as the str below it did not work
 
@@ -67,7 +67,7 @@ str(diamonds)
 # Test whether the function str is called with the correct argument, object
 # If it is not called, print something informative
 # If it is called, but called incorrectly, print something else
- test_function("str", args = "object",
+ test_function("str", args = "object", 
               not_called_msg = "You didn't call `str()`!",
               incorrect_msg = "You didn't call `str(object = ...)` with the correct argument, `object`.")
 
@@ -142,7 +142,7 @@ head(diamonds)
 # Test whether the function str is called with the correct argument, object
 # If it is not called, print something informative
 # If it is called, but called incorrectly, print something else
-test_function("str", args = "object",
+test_function("summary", args = "diamonds",
               not_called_msg = "You didn't call `str()`!",
               incorrect_msg = "You didn't call `str(object = ...)` with the correct argument, `object`.")
 
