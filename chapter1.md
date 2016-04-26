@@ -8,19 +8,16 @@ attachments :
 --- type:NormalExercise lang:r xp:100 skills:1
 ## More movies 
 
-In the previous exercise, you saw a dataset about movies. In this exercise, we'll have a look at yet another dataset about movies!
+In this exercise, we will use the dataset 'diamonds' within the ggplot2 funciton. We will attempt to predict the cost of a diamond using a some of the diamond characterists found in the dataset.
 
-A dataset with a selection of movies, `movie_selection`, is available in the workspace.
+# A dataset with a selection of movies, `movie_selection`, is available in the workspace.
 
 *** =instructions
-- Check out the structure of `movie_selection`.
-- Select movies with a rating of 5 or higher. Assign the result to `good_movies`.
-- Use `plot()` to  plot `good_movies$Run` on the x-axis, `good_movies$Rating` on the y-axis and set `col` to `good_movies$Genre`.
+- Check out the structure of `diamonds`.
 
 *** =hint
 - Use `str()` for the first instruction.
-- For the second instruction, you should use `...[movie_selection$Rating >= 5, ]`.
-- For the plot, use `plot(x = ..., y = ..., col = ...)`. 
+ 
 
 *** =pre_exercise_code
 ```{r}
