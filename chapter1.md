@@ -25,19 +25,18 @@ A dataset with a selection of movies, `movie_selection`, is available in the wor
 *** =pre_exercise_code
 ```{r}
 # Pre-load a package in the workspace
-library(MindOnStats)
+library(ggplot2)
 
 # You can prepare the data before the student starts:
-data(Movies)
-movie_selection <- Movies[Movies$Genre %in% c("action", "animated", "comedy"),c("Genre", "Rating", "Run")]
 
 # You can also clean up data so that it's not available in the student's workspace anymore:
-rm(Movies)
+
 ```
 
 *** =sample_code
 ```{r}
 # movie_selection is available in your workspace
+
 
 # Check out the structure of movie_selection
 
