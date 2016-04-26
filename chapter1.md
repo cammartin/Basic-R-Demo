@@ -10,8 +10,6 @@ attachments :
 
 In this exercise, we will use the dataset 'diamonds' within the ggplot2 funciton. We will attempt to predict the cost of a diamond using a some of the diamond characterists found in the dataset.
 
-# A dataset with a selection of movies, `movie_selection`, is available in the workspace.
-
 *** =instructions
 - Check out the structure of `diamonds`.
 
