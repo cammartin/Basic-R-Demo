@@ -139,7 +139,7 @@ head(diamonds)
               not_called_msg = "You didn't call `summary()`!",
               incorrect_msg = "You didn't call `summary(object = ...)` with the correct argument, `object`.")
 
- test_function("head", args = "diamonds", 
+ test_function("head", args = "object", 
               not_called_msg = "You didn't call `head()`!",
               incorrect_msg = "You didn't call `head(object = ...)` with the correct argument, `object`.")
 
