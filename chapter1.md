@@ -103,8 +103,8 @@ In the last exercise, you saw a dataset about diamonds. In this exercise, we wil
 The package ggplot and the dataset diamonds are available in the workspace.
 
 *** =instructions
-- Check out the structure of diamonds, but use 'summary()' this time.
-- Now show the columns names and the first few rows of the dataset.
+- Check out the structure of diamonds, but use `summary()` this time.
+- Use `head()` show the columns names and the first few rows of the dataset.
 
 *** =hint
 - Use 'summary()' to see the structure of diamonds.
