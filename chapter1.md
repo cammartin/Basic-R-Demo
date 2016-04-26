@@ -63,6 +63,9 @@ str(diamonds)
 # The sct section defines the Submission Correctness Tests (SCTs) used to
 # evaluate the student's response. All functions used here are defined in the 
 # testwhat R package. Documentation can also be found at github.com/datacamp/testwhat/wiki
+test_function("library", args = "object",
+              not_called_msg = "You didn't call `library()`!",
+              incorrect_msg = "You didn't call `library(object = ...)` with the correct argument, `object`.")
 
 # Test whether the function str is called with the correct argument, object
 # If it is not called, print something informative
