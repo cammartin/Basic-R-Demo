@@ -6,7 +6,7 @@ attachments :
 
 
 --- type:NormalExercise lang:r xp:100 skills:1
-## More movies
+## More movies 2
 
 In the previous exercise, you saw a dataset about movies. In this exercise, we'll have a look at yet another dataset about movies!
 
