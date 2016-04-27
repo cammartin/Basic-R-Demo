@@ -367,7 +367,7 @@ diamonds$price <- NULL
 #set.seed(42)
 
 # Split the data using the price level column
-inTrain  <- (y=diamonds$price_level, p=0.7, list=FALSE)
+#inTrain  <- (y=diamonds$price_level, p=0.7, list=FALSE)
 
 # Assign the training and testing datasets. Remember the training dataset willl have 70% and the testing will have 30%
 #training <- diamonds[inTrain,]
