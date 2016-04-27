@@ -301,7 +301,7 @@ test_function("ggplot")
 
 # third instruction
 test_student_typed("diamonds$price_level", not_typed_msg = "Did you forget to add price_level column? Take another look at the instruction.")
-test_output_contains("diamonds$price_level", incorrect_msg = "Did you forget to add price_level column? Take another look at the instruction.")
+test_output_contains("diamonds$price_level <- as.numeric(cut(diamonds$price, seq(from = 0, to = 50000, by = 4000)))", incorrect_msg = "Did you forget to add price_level column? Take another look at the instruction.")
 
 # fourth instruction
 test_student_typed("names(diamonds)", not_typed_msg = "Did you forget to check the column names? Take another look at the instruction.")
