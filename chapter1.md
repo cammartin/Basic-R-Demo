@@ -473,13 +473,12 @@ testing  <- diamonds[-inTrain,]
 #set.seed(42)
 
 # Run randomForest 
-#forest1 <- randomForest(as.factor(price_level) ~. , data=training,
-                        importance = TRUE, ntrees = 4)
+#forest1 <- randomForest(as.factor(price_level) ~. , data=training, importance = TRUE, ntrees = 4)
 
 # Predict the price levels
 #pred.train <- predict(forest1, training)
 
-# pring prediction results
+# Pring prediction results
 #print(confusionMatrix(pred.train, training$price_level))
 
 
@@ -490,20 +489,20 @@ testing  <- diamonds[-inTrain,]
 # The dataset diamonds and the ggplot2 package are available in your workspace. Price was removed from the dataset.
 
 # Make randomForest available to use
-#library(randomForest)
+library(randomForest)
 
 # Set seed to 42
-#set.seed(42)
+set.seed(42)
 
 # Run randomForest 
-#forest1 <- randomForest(as.factor(price_level) ~. , data=training,
+forest1 <- randomForest(as.factor(price_level) ~. , data=training,
                         importance = TRUE, ntrees = 4)
 
 # Predict the price levels
-#pred.train <- predict(forest1, training)
+pred.train <- predict(forest1, training)
 
-# pring prediction results
-#print(confusionMatrix(pred.train, training$price_level))
+# Print prediction results
+print(confusionMatrix(pred.train, training$price_level))
 
 ```
 
@@ -516,23 +515,40 @@ testing  <- diamonds[-inTrain,]
 # Test whether the function str is called with the correct argument, object
 # If it is not called, print something informative
 # If it is called, but called incorrectly, print something else
-test_function("str", args = "object",
-              not_called_msg = "You didn't call `str()`!",
-              incorrect_msg = "You didn't call `str(object = ...)` with the correct argument, `object`.")
 
-# Test the object, good_movies
-# Notice that we didn't define any feedback here, this will cause automatically 
-# generated feedback to be given to the student in case of an incorrect submission
-test_object("good_movies")
+# first instruction
+test_function("library",
+              not_called_msg = "You didn't call `library()`!",
+              incorrect_msg = "You didn't call `library(object = ...)` with the correct argument, `object`.")
+test_student_typed("library(randomForest)", not_typed_msg = "Did you forget to call library(caret)?")
 
-# Test whether the student correctly used plot()
-# Again, we use the automatically generated feedback here
-test_function("plot", args = "x")
-test_function("plot", args = "y")
-test_function("plot", args = "col")
+# second instruction
+test_output_contains("set.seed(42)", incorrect_msg = "Take a look at your code for set.seed.")
+test_function("set.seed")
 
-# Alternativeley, you can use test_function() like this
-# test_function("plot", args = c("x", "y", "col"))
+# third instruction
+test_object("forest1", incorrect_msg = "Take a look at your code for randomForest.")
+test_function("createDataPartition")
+test_outcome_conatins("randomForest(as.factor(price_level) ~. , data=training,importance = TRUE, ntrees = 4)", incorrect_msg = "Did you include everything in your randomForest?")
+
+
+
+# fourth instruction
+test_student_typed("training <- diamonds[inTrain,]", not_typed_msg = "Take a look at your code to assign the new datasets.")
+test_student_typed("testing  <- diamonds[-inTrain,]", not_typed_msg = "Take a look at your code to assign the new datasets.")
+
+# fifth instruction
+test_student_typed("training <- diamonds[inTrain,]", not_typed_msg = "Take a look at your code to assign the new datasets.")
+test_student_typed("testing  <- diamonds[-inTrain,]", not_typed_msg = "Take a look at your code to assign the new datasets.")
+
+# Predict the price levels
+pred.train <- predict(forest1, training)
+
+# Print prediction results
+print(confusionMatrix(pred.train, training$price_level))
+
+
+
 
 # It's always smart to include the following line of code at the end of your SCTs
 # It will check whether executing the student's code resulted in an error, 
