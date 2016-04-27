@@ -277,7 +277,7 @@ names(diamonds)
 # If it is called, but called incorrectly, print something else
 # first instruction
 test_student_typed("names(diamonds)", not_typed_msg = "Did you forget to check the column names? Take another look at the instruction.")
-
+test_output_contains("names(diamonds)", incorrect_msg = "Did you forget to check the column names? Take another look at the instruction.")
 
 
 
