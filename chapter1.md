@@ -334,7 +334,9 @@ success_msg("Good work!")
 --- type:NormalExercise lang:r xp:100 skills:1
 ## Cost of Diamonds 5
 
-In this exercise we will split the data into a training dataset and a testing datasets in order to traing our ML algorithm to predict diamond prices. We will use `createDataPartition` to put 70% of the diamonds dataset in the training dataset and 30% in testing dataset.
+In this exercise we will split the data into a training dataset and a testing datasets in order to traing our ML algorithm to predict diamond prices. 
+
+We will use `createDataPartition` to put 70% of the diamonds dataset in the training dataset and 30% in testing dataset.
 
 *** =instructions
 - In this exercise we will split the data into a training dataset and a testing datasets
@@ -432,61 +434,77 @@ success_msg("Good work!")
 ```
 
 --- type:NormalExercise lang:r xp:100 skills:1
-## Diamonds 6
+## Cost of Diamonds 6
 
-In the previous exercise, you saw a dataset about movies. In this exercise, we'll have a look at yet another dataset about movies!
+This exercise we will use the the training datasets that we created to train our randomForest to predict the cost of the diamond.  
 
-A dataset with a selection of movies, `movie_selection`, is available in the workspace.
+We will attempt to predict which price level the diamonds belong in and test our prediction.    
 
 *** =instructions
-- Check out the structure of `movie_selection`.
-- Select movies with a rating of 5 or higher. Assign the result to `good_movies`.
+- Set seed to 42.
+- Run randomForest with the training dataset, with price_level as the outcome using all the other variables as predictors.
 - Use `plot()` to  plot `good_movies$Run` on the x-axis, `good_movies$Rating` on the y-axis and set `col` to `good_movies$Genre`.
 
 *** =hint
-- Use `str()` for the first instruction.
-- For the second instruction, you should use `...[movie_selection$Rating >= 5, ]`.
-- For the plot, use `plot(x = ..., y = ..., col = ...)`. 
+- Remember to use price_level as the outcome using all the variables from the diamonds data set as predictors for the randomForest 
 
 *** =pre_exercise_code
 ```{r}
 # Pre-load a package in the workspace
-library(MindOnStats)
-
-# You can prepare the data before the student starts:
-data(Movies)
-movie_selection <- Movies[Movies$Genre %in% c("action", "animated", "comedy"),c("Genre", "Rating", "Run")]
-
-# You can also clean up data so that it's not available in the student's workspace anymore:
-rm(Movies)
+library(ggplot2)
+diamonds <- diamonds
+diamonds$price_level <- as.numeric(cut(diamonds$price,seq(from = 0, to = 50000, by = 4000)))
+diamonds$price = NULL
+library(caret)
+set.seed(42)
+inTrain  <- createDataPartition(y=diamonds$price_level, p=0.7, list=FALSE)
+training <- diamonds[inTrain,]
+testing  <- diamonds[-inTrain,]
 ```
 
 *** =sample_code
 ```{r}
-# movie_selection is available in your workspace
+# The dataset diamonds and the ggplot2 package are available in your workspace. Price was removed from the dataset.
 
-# Check out the structure of movie_selection
+# Make randomForest available to use
+#library(randomForest)
 
+# Set seed to 42
+#set.seed(42)
 
-# Select movies that have a rating of 5 or higher: good_movies
+# Run randomForest 
+#forest1 <- randomForest(as.factor(price_level) ~. , data=training,
+                        importance = TRUE, ntrees = 4)
 
+# Predict the price levels
+#pred.train <- predict(forest1, training)
 
-# Plot Run (i.e. run time) on the x axis, Rating on the y axis, and set the color using Genre
+# pring prediction results
+#print(confusionMatrix(pred.train, training$price_level))
+
 
 ```
 
 *** =solution
 ```{r}
-# movie_selection is available in your workspace
+# The dataset diamonds and the ggplot2 package are available in your workspace. Price was removed from the dataset.
 
-# Check out the structure of movie_selection
-str(movie_selection)
+# Make randomForest available to use
+#library(randomForest)
 
-# Select movies that have a rating of 5 or higher: good_movies
-good_movies <- movie_selection[movie_selection$Rating >= 5, ]
+# Set seed to 42
+#set.seed(42)
 
-# Plot Run (i.e. run time) on the x axis, Rating on the y axis, and set the color using Genre
-plot(good_movies$Run, good_movies$Rating, col = good_movies$Genre)
+# Run randomForest 
+#forest1 <- randomForest(as.factor(price_level) ~. , data=training,
+                        importance = TRUE, ntrees = 4)
+
+# Predict the price levels
+#pred.train <- predict(forest1, training)
+
+# pring prediction results
+#print(confusionMatrix(pred.train, training$price_level))
+
 ```
 
 *** =sct
