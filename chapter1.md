@@ -263,12 +263,6 @@ diamonds <- diamonds
 # Show that you have successfully added the price_level column.
 #names(diamonds)
 
-# We won't need the price column anymore, remove it from the dataset.
-#diamonds$price <- NULL
-
-# Show that you have successfully removed the price_level column.
-#names(diamonds)
-
 # Find the maximum price level and make a histogram using `qplot` and price_level 
 #max(diamonds$)
 #(price_level, data=diamonds, geom="histogram", bins = 5)
@@ -289,12 +283,6 @@ ggplot(diamonds, aes(x=carat, y=price, color=cut)) + geom_point() + facet_grid(c
 diamonds$price_level <- as.numeric(cut(diamonds$price, seq(from = 0, to = 50000, by = 4000)))
 
 # Show that you have successfully added the price_level column.
-names(diamonds)
-
-# We won't need the price column anymore, remove it from the dataset.
-diamonds$price <- NULL
-
-# Show that you have successfully removed the price_level column.
 names(diamonds)
 
 # Find the maximum price level and make a histogram using `qplot` and price_level 
@@ -324,14 +312,6 @@ test_student_typed("diamonds$price_level", not_typed_msg = "Did you forget to ad
 test_output_contains("diamonds$price_level <- as.numeric(cut(diamonds$price, seq(from = 0, to = 50000, by = 4000)))", incorrect_msg = "Did you forget to add price_level column? Take another look at the instruction.")
 
 # fourth instruction
-test_student_typed("names(diamonds)", not_typed_msg = "Did you forget to check the column names? Take another look at the instruction.")
-test_output_contains("names(diamonds)", incorrect_msg = "Did you forget to check the column names? Take another look at the instruction.")
-
-# fifth instruction
-test_student_typed("diamonds$price <- NULL", not_typed_msg = "Did you forget to remove the price column? Take another look at the instruction.")
-test_output_contains("diamonds$price <- NULL", incorrect_msg = "Did you forget to remove the price column? Take another look at the instruction.")
-
-# sixth instruction
 test_student_typed("names(diamonds)", not_typed_msg = "Did you forget to check the column names? Take another look at the instruction.")
 test_output_contains("names(diamonds)", incorrect_msg = "Did you forget to check the column names? Take another look at the instruction.")
 
