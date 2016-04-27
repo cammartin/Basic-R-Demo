@@ -300,13 +300,15 @@ test_output_contains("ggplot(diamonds, aes(x=carat, y=price, color=cut)) + geom_
 test_function("ggplot")
 
 # third instruction
+test_student_typed("diamonds$price_level", not_typed_msg = "Did you forget to add price_level column? Take another look at the instruction.")
+test_output_contains("diamonds$price_level", incorrect_msg = "Did you forget to add price_level column? Take another look at the instruction.")
+
+# fourth instruction
 test_student_typed("names(diamonds)", not_typed_msg = "Did you forget to check the column names? Take another look at the instruction.")
 test_output_contains("names(diamonds)", incorrect_msg = "Did you forget to check the column names? Take another look at the instruction.")
 
 
-# fourth instruction
-test_student_typed("diamonds$price_level", not_typed_msg = "Did you forget to add price_level column? Take another look at the instruction.")
-test_output_contains("diamonds$price_level", incorrect_msg = "Did you forget to add price_level column? Take another look at the instruction.")
+
 
 
 # It's always smart to include the following line of code at the end of your SCTs
