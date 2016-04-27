@@ -254,6 +254,10 @@ diamonds <- diamonds
 # Display the column names.
 #names(diamonds)
 
+# Create a series of facet_grid ggplots.
+#ggplot(diamonds, aes(x=carat, y=price, color=cut)) + geom_point() + facet_grid(color ~ clarity)
+
+
 ```
 
 *** =solution
@@ -262,6 +266,9 @@ diamonds <- diamonds
 
 # Display the column names.
 names(diamonds)
+
+# Create a series of facet_grid ggplots.
+ggplot(diamonds, aes(x=carat, y=price, color=cut)) + geom_point() + facet_grid(color ~ clarity)
 
 
 ```
@@ -279,7 +286,9 @@ names(diamonds)
 test_student_typed("names(diamonds)", not_typed_msg = "Did you forget to check the column names? Take another look at the instruction.")
 test_output_contains("names(diamonds)", incorrect_msg = "Did you forget to check the column names? Take another look at the instruction.")
 
-
+# second instruction
+test_output_contains("ggplot(diamonds, aes(x=carat, y=price, color=cut)) + geom_point() + facet_grid(color ~ clarity)", incorrect_msg = "Take a look at your code for the facet plot.")
+test_function("qqplot")
 
 # It's always smart to include the following line of code at the end of your SCTs
 # It will check whether executing the student's code resulted in an error, 
