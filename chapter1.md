@@ -417,7 +417,7 @@ test_output_contains("set.seed(42)", incorrect_msg = "Take a look at your code f
 test_function("set.seed")
 
 # third instruction
-test_output_contains("inTrain  <- createDataPartition(y=diamonds$price_level, p=0.7, list=FALSE)", , incorrect_msg = "Take a look at your code for break up the dataset."))
+test_output_contains("inTrain  <- createDataPartition(y=diamonds$price_level, p=0.7, list=FALSE)" , incorrect_msg = "Take a look at your code for break up the dataset.")
 test_function("createDataPartition")
 
 # fourth instruction
