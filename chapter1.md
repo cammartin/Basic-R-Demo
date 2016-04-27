@@ -337,7 +337,6 @@ test_output_contains("names(diamonds)", incorrect_msg = "Did you forget to check
 
 # seventh instruction
 test_student_typed("max(diamonds$price_level)", not_typed_msg = "Did you forget to check the max price_level? Take another look at the instruction.")
-test_output_contains("max(diamonds$price_level)", incorrect_msg = "Did you forget to check the max price_level? Take another look at the instruction.")
 
 # eigth instruction
 test_output_contains("qplot(price_level, data=diamonds, geom='histogram', bins = 5)", incorrect_msg = "Take a look at your code for the facet plot.")
