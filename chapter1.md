@@ -413,7 +413,7 @@ test_function("library",
 test_student_typed("library(caret)", not_typed_msg = "Did you forget to call library(caret)?")
 
 # second instruction
-test_output_contains("set.seed(42)", , incorrect_msg = "Take a look at your code for set.seed."))
+test_output_contains("set.seed(42)", incorrect_msg = "Take a look at your code for set.seed.")
 test_function("set.seed")
 
 # third instruction
