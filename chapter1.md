@@ -257,6 +257,11 @@ diamonds <- diamonds
 # Create a series of facet_grid ggplots.
 #ggplot(diamonds, aes(x=carat, y=price, color=cut)) + geom_point() + facet_grid(color ~ clarity)
 
+# Create a column price_level.
+#diamonds$price_level <- as.numeric(cut(diamonds$price, seq(from = 0, to = 50000, by = 4000)))
+
+# Show that you have successfully added the price_level column.
+#names(diamonds)
 
 ```
 
@@ -270,7 +275,11 @@ names(diamonds)
 # Create a series of facet_grid ggplots.
 ggplot(diamonds, aes(x=carat, y=price, color=cut)) + geom_point() + facet_grid(color ~ clarity)
 
+# Create a column price_level.
+diamonds$price_level <- as.numeric(cut(diamonds$price, seq(from = 0, to = 50000, by = 4000)))
 
+# Show that you have successfully added the price_level column.
+names(diamonds)
 ```
 
 *** =sct
@@ -289,6 +298,16 @@ test_output_contains("names(diamonds)", incorrect_msg = "Did you forget to check
 # second instruction
 test_output_contains("ggplot(diamonds, aes(x=carat, y=price, color=cut)) + geom_point() + facet_grid(color ~ clarity)", incorrect_msg = "Take a look at your code for the facet plot.")
 test_function("ggplot")
+
+# third instruction
+test_student_typed("names(diamonds)", not_typed_msg = "Did you forget to check the column names? Take another look at the instruction.")
+test_output_contains("names(diamonds)", incorrect_msg = "Did you forget to check the column names? Take another look at the instruction.")
+
+
+# fourth instruction
+test_student_typed("diamonds$price_level", not_typed_msg = "Did you forget to add price_level column? Take another look at the instruction.")
+test_output_contains("diamonds$price_level", incorrect_msg = "Did you forget to add price_level column? Take another look at the instruction.")
+
 
 # It's always smart to include the following line of code at the end of your SCTs
 # It will check whether executing the student's code resulted in an error, 
