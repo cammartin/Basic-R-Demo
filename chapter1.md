@@ -411,7 +411,7 @@ test_output_contains("set.seed(42)", incorrect_msg = "Take a look at your code f
 test_function("set.seed")
 
 # third instruction
-test_output_contains("inTrain  <- createDataPartition(y=diamonds$price_level, p=0.7, list=FALSE)" , incorrect_msg = "Take a look at your code for break up the dataset.", incorrect_msg = "Take a look at your code split the data.")
+test_output_contains("inTrain  <- createDataPartition(y=diamonds$price_level, p=0.7, list=FALSE)", incorrect_msg = "Take a look at your code for break up the dataset.")
 test_function("createDataPartition")
 
 # fourth instruction
@@ -420,7 +420,7 @@ test_student_typed("testing  <- diamonds[-inTrain,]", not_typed_msg = "Take a lo
 
 # fifth instruction
 # Take a look at the dimentions of the new datasets
-test_output_contains("dim(training); dim(testing)", not_typed_msg = "Take a look at your code to display the dimensions of the new data sets.")
+test_output_contains("dim(training); dim(testing)", incorrect_msg = "Take a look at your code to display the dimensions of the new data sets.")
 
 # It's always smart to include the following line of code at the end of your SCTs
 # It will check whether executing the student's code resulted in an error, 
