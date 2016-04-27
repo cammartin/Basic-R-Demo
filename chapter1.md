@@ -351,7 +351,6 @@ A dataset with a selection of movies, `movie_selection`, is available in the wor
 library(ggplot2)
 diamonds <- diamonds
 diamonds$price_level <- as.numeric(cut(diamonds$price,seq(from = 0, to = 50000, by = 4000)))
-diamonds$price <- NULL
 
 
 ```
