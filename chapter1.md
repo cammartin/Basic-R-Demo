@@ -263,6 +263,16 @@ diamonds <- diamonds
 # Show that you have successfully added the price_level column.
 #names(diamonds)
 
+# We won't need the price column anymore, remove it from the dataset.
+#diamonds$price <- NULL
+
+# Show that you have successfully removed the price_level column.
+#names(diamonds)
+
+# Find the maximum price level and make a histogram using `qplot` and price_level 
+#max(diamonds$)
+#(price_level, data=diamonds, geom="histogram", bins = 5)
+
 ```
 
 *** =solution
@@ -280,6 +290,16 @@ diamonds$price_level <- as.numeric(cut(diamonds$price, seq(from = 0, to = 50000,
 
 # Show that you have successfully added the price_level column.
 names(diamonds)
+
+# We won't need the price column anymore, remove it from the dataset.
+diamonds$price <- NULL
+
+# Show that you have successfully removed the price_level column.
+names(diamonds)
+
+# Find the maximum price level and make a histogram using `qplot` and price_level 
+max(diamonds$price_level)
+qplot(price_level, data=diamonds, geom="histogram", bins = 5)
 ```
 
 *** =sct
@@ -307,9 +327,21 @@ test_output_contains("diamonds$price_level <- as.numeric(cut(diamonds$price, seq
 test_student_typed("names(diamonds)", not_typed_msg = "Did you forget to check the column names? Take another look at the instruction.")
 test_output_contains("names(diamonds)", incorrect_msg = "Did you forget to check the column names? Take another look at the instruction.")
 
+# fifth instruction
+test_student_typed("diamonds$price <- NULL", not_typed_msg = "Did you forget to remove the price column? Take another look at the instruction.")
+test_output_contains("diamonds$price <- NULL", incorrect_msg = "Did you forget to remove the price column? Take another look at the instruction.")
 
+# sixth instruction
+test_student_typed("names(diamonds)", not_typed_msg = "Did you forget to check the column names? Take another look at the instruction.")
+test_output_contains("names(diamonds)", incorrect_msg = "Did you forget to check the column names? Take another look at the instruction.")
 
+# seventh instruction
+test_student_typed("max(diamonds$price_level)", not_typed_msg = "Did you forget to check the max price_level? Take another look at the instruction.")
+test_output_contains("max(diamonds$price_level)", incorrect_msg = "Did you forget to check the max price_level? Take another look at the instruction.")
 
+# eigth instruction
+test_output_contains("qplot(price_level, data=diamonds, geom="histogram", bins = 5)", incorrect_msg = "Take a look at your code for the facet plot.")
+test_function("qplot")
 
 # It's always smart to include the following line of code at the end of your SCTs
 # It will check whether executing the student's code resulted in an error, 
