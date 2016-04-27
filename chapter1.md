@@ -339,14 +339,11 @@ In the previous exercise, you saw a dataset about movies. In this exercise, we'l
 A dataset with a selection of movies, `movie_selection`, is available in the workspace.
 
 *** =instructions
-- Check out the structure of `movie_selection`.
-- Select movies with a rating of 5 or higher. Assign the result to `good_movies`.
-- Use `plot()` to  plot `good_movies$Run` on the x-axis, `good_movies$Rating` on the y-axis and set `col` to `good_movies$Genre`.
-
+- In this exercise we will split the data into a training dataset and a testing datasets
+- We will use `createDataPartition` to put 70% of the diamonds dataset in the training dataset and 30% in testing dataset
 *** =hint
-- Use `str()` for the first instruction.
-- For the second instruction, you should use `...[movie_selection$Rating >= 5, ]`.
-- For the plot, use `plot(x = ..., y = ..., col = ...)`. 
+- Don't forget to set the seed.
+
 
 *** =pre_exercise_code
 ```{r}
@@ -361,29 +358,46 @@ diamonds$price <- NULL
 
 *** =sample_code
 ```{r}
-# movie_selection is available in your workspace
+# The dataset diamonds and the ggplot2 package are available in your workspace.
 
-# Check out the structure of movie_selection
+# Make the package caret available to use
+#library(caret)
 
-# Select movies that have a rating of 5 or higher: good_movies
+# Set seed to 42
+#set.seed(42)
 
+# Split the data using the price level column
+inTrain  <- (y=diamonds$price_level, p=0.7, list=FALSE)
 
-# Plot Run (i.e. run time) on the x axis, Rating on the y axis, and set the color using Genre
+# Assign the training and testing datasets. Remember the training dataset willl have 70% and the testing will have 30%
+#training <- diamonds[inTrain,]
+#testing  <- diamonds[-inTrain,]
 
+# Take a look at the dimentions of the new datasets
+#dim(training); dim(testing)
 ```
 
 *** =solution
 ```{r}
-# movie_selection is available in your workspace
+# The dataset diamonds and the ggplot2 package are available in your workspace.
 
-# Check out the structure of movie_selection
-str(movie_selection)
+# Make the package caret available to use
+library(caret)
 
-# Select movies that have a rating of 5 or higher: good_movies
-good_movies <- movie_selection[movie_selection$Rating >= 5, ]
+# Set seed to 42
+set.seed(42)
 
-# Plot Run (i.e. run time) on the x axis, Rating on the y axis, and set the color using Genre
-plot(good_movies$Run, good_movies$Rating, col = good_movies$Genre)
+# Split the data using the price level column
+inTrain  <- createDataPartition(y=diamonds$price_level, p=0.7, list=FALSE)
+
+# Assign the training and testing datasets. Remember the training dataset willl have 70% and the testing will have 30%
+training <- diamonds[inTrain,]
+testing  <- diamonds[-inTrain,]
+
+# Take a look at the dimentions of the new datasets
+dim(training); dim(testing)
+
+```
 ```
 
 *** =sct
@@ -392,26 +406,27 @@ plot(good_movies$Run, good_movies$Rating, col = good_movies$Genre)
 # evaluate the student's response. All functions used here are defined in the 
 # testwhat R package. Documentation can also be found at github.com/datacamp/testwhat/wiki
 
-# Test whether the function str is called with the correct argument, object
-# If it is not called, print something informative
-# If it is called, but called incorrectly, print something else
-test_function("str", args = "object",
-              not_called_msg = "You didn't call `str()`!",
-              incorrect_msg = "You didn't call `str(object = ...)` with the correct argument, `object`.")
+# first instruction
+test_function("library",
+              not_called_msg = "You didn't call `library()`!",
+              incorrect_msg = "You didn't call `library(object = ...)` with the correct argument, `object`.")
+test_student_typed("library(caret)", not_typed_msg = "Did you forget to call library(caret)?")
 
-# Test the object, good_movies
-# Notice that we didn't define any feedback here, this will cause automatically 
-# generated feedback to be given to the student in case of an incorrect submission
-test_object("good_movies")
+# second instruction
+test_output_contains("set.seed(42)", , incorrect_msg = "Take a look at your code for set.seed."))
+test_function("set.seed")
 
-# Test whether the student correctly used plot()
-# Again, we use the automatically generated feedback here
-test_function("plot", args = "x")
-test_function("plot", args = "y")
-test_function("plot", args = "col")
+# third instruction
+test_output_contains("inTrain  <- createDataPartition(y=diamonds$price_level, p=0.7, list=FALSE)", , incorrect_msg = "Take a look at your code for break up the dataset."))
+test_function("createDataPartition")
 
-# Alternativeley, you can use test_function() like this
-# test_function("plot", args = c("x", "y", "col"))
+# fourth instruction
+test_student_typed("training <- diamonds[inTrain,]", not_typed_msg = "Take a look at your code to assign the new datasets.")
+test_student_typed("testing  <- diamonds[-inTrain,]", not_typed_msg = "Take a look at your code to assign the new datasets.")
+
+# fifth instruction
+# Take a look at the dimentions of the new datasets
+test_output_contains("dim(training); dim(testing)", not_typed_msg = "Take a look at your code to display the dimensions of the new data sets.")
 
 # It's always smart to include the following line of code at the end of your SCTs
 # It will check whether executing the student's code resulted in an error, 
