@@ -334,9 +334,7 @@ success_msg("Good work!")
 --- type:NormalExercise lang:r xp:100 skills:1
 ## Diamonds 5
 
-In the previous exercise, you saw a dataset about movies. In this exercise, we'll have a look at yet another dataset about movies!
-
-A dataset with a selection of movies, `movie_selection`, is available in the workspace.
+In this exercise we will split the data into a training dataset and a testing datasets in order to traing our ML algorithm to predict diamond prices. We will use `createDataPartition` to put 70% of the diamonds dataset in the training dataset and 30% in testing dataset.
 
 *** =instructions
 - In this exercise we will split the data into a training dataset and a testing datasets
@@ -351,8 +349,6 @@ A dataset with a selection of movies, `movie_selection`, is available in the wor
 library(ggplot2)
 diamonds <- diamonds
 diamonds$price_level <- as.numeric(cut(diamonds$price,seq(from = 0, to = 50000, by = 4000)))
-
-
 ```
 
 *** =sample_code
