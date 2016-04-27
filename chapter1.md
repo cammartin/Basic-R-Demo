@@ -299,7 +299,7 @@ names(diamonds)
 
 # Find the maximum price level and make a histogram using `qplot` and price_level 
 max(diamonds$price_level)
-qplot(price_level, data=diamonds, geom="histogram", bins = 5)
+qplot(price_level, data=diamonds, geom='histogram', bins = 5)
 ```
 
 *** =sct
@@ -340,7 +340,7 @@ test_student_typed("max(diamonds$price_level)", not_typed_msg = "Did you forget 
 test_output_contains("max(diamonds$price_level)", incorrect_msg = "Did you forget to check the max price_level? Take another look at the instruction.")
 
 # eigth instruction
-test_output_contains("qplot(price_level, data=diamonds, geom="histogram", bins = 5)", incorrect_msg = "Take a look at your code for the facet plot.")
+test_output_contains("qplot(price_level, data=diamonds, geom='histogram', bins = 5)", incorrect_msg = "Take a look at your code for the facet plot.")
 test_function("qplot")
 
 # It's always smart to include the following line of code at the end of your SCTs
