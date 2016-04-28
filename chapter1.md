@@ -526,25 +526,25 @@ test_output_contains("set.seed(42)", incorrect_msg = "Take a look at your code f
 test_function("set.seed")
 
 # third instruction
-test_object("forest1", incorrect_msg = "Take a look at your code for randomForest.")
-test_function("createDataPartition")
-test_outcome_conatins("randomForest(as.factor(price_level) ~. , data=training,importance = TRUE, ntrees = 4)", incorrect_msg = "Did you include everything in your randomForest?")
+#test_object("forest1", incorrect_msg = "Take a look at your code for randomForest.")
+#test_function("createDataPartition")
+#test_outcome_conatins("randomForest(as.factor(price_level) ~. , data=training,importance = TRUE, ntrees = 4)", #incorrect_msg = "Did you include everything in your randomForest?")
 
 
 
 # fourth instruction
-test_student_typed("training <- diamonds[inTrain,]", not_typed_msg = "Take a look at your code to assign the new datasets.")
-test_student_typed("testing  <- diamonds[-inTrain,]", not_typed_msg = "Take a look at your code to assign the new datasets.")
+#test_student_typed("training <- diamonds[inTrain,]", not_typed_msg = "Take a look at your code to assign the new datasets.")
+#test_student_typed("testing  <- diamonds[-inTrain,]", not_typed_msg = "Take a look at your code to assign the new #datasets.")
 
 # fifth instruction
-test_student_typed("training <- diamonds[inTrain,]", not_typed_msg = "Take a look at your code to assign the new datasets.")
-test_student_typed("testing  <- diamonds[-inTrain,]", not_typed_msg = "Take a look at your code to assign the new datasets.")
+#test_student_typed("training <- diamonds[inTrain,]", not_typed_msg = "Take a look at your code to assign the new #datasets.")
+#test_student_typed("testing  <- diamonds[-inTrain,]", not_typed_msg = "Take a look at your code to assign the new #datasets.")
 
 # Predict the price levels
-pred.train <- predict(forest1, training)
+#pred.train <- predict(forest1, training)
 
 # Print prediction results
-print(confusionMatrix(pred.train, training$price_level))
+#print(confusionMatrix(pred.train, training$price_level))
 
 
 
