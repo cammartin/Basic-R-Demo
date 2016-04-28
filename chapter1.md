@@ -490,10 +490,10 @@ library(e1071)
 # The dataset diamonds and the ggplot2 package are available in your workspace. Price was removed from the dataset.
 
 # Make randomForest available to use
-#library(randomForest)
+library(randomForest)
 
 # Set seed to 42
-#set.seed(42)
+set.seed(42)
 
 # Run randomForest 
 #forest1 <- randomForest(as.factor(price_level) ~. , data=training, importance = TRUE, ntrees = 4)
