@@ -6,7 +6,7 @@ attachments :
 
 
 --- type:NormalExercise lang:r xp:100 skills:1
-## Cost of diamonds 
+## Cost of diamonds 1 
 
 In this exercise, we will use the dataset diamonds within the ggplot2 package. Using a randomForest will attempt to predict the cost of a diamond using a some of the diamond characterists found in the dataset.
 
