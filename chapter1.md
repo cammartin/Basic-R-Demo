@@ -457,10 +457,10 @@ diamonds$price_level <- as.numeric(cut(diamonds$price,seq(from = 0, to = 50000, 
 diamonds$price = NULL
 library(caret)
 library(e1071)
-set.seed(42)
-inTrain  <- createDataPartition(y=diamonds$price_level, p=0.7, list=FALSE)
-training <- diamonds[inTrain,]
-testing  <- diamonds[-inTrain,]
+#set.seed(42)
+#inTrain  <- createDataPartition(y=diamonds$price_level, p=0.7, list=FALSE)
+#training <- diamonds[inTrain,]
+#testing  <- diamonds[-inTrain,]
 ```
 
 *** =sample_code
@@ -490,19 +490,19 @@ testing  <- diamonds[-inTrain,]
 # The dataset diamonds and the ggplot2 package are available in your workspace. Price was removed from the dataset.
 
 # Make randomForest available to use
-library(randomForest)
+#library(randomForest)
 
 # Set seed to 42
-set.seed(42)
+#set.seed(42)
 
 # Run randomForest 
-forest1 <- randomForest(as.factor(price_level) ~. , data=training, importance = TRUE, ntrees = 4)
+#forest1 <- randomForest(as.factor(price_level) ~. , data=training, importance = TRUE, ntrees = 4)
 
 # Predict the price levels
-pred.train <- predict(forest1, training)
+#pred.train <- predict(forest1, training)
 
 # Print prediction results
-print(confusionMatrix(pred.train, training$price_level))
+#print(confusionMatrix(pred.train, training$price_level))
 
 ```
 
@@ -590,20 +590,20 @@ set.seed(42)
 *** =sample_code
 ```{r}
 # Run the prediction on the testing dataset
-pred.test <- predict(forest1, testing)
+#pred.test <- predict(forest1, testing)
 
 # Print the results
-print(confusionMatrix(pred.test, testing$price_level))
+#print(confusionMatrix(pred.test, testing$price_level))
 
 ```
 
 *** =solution
 ```{r}
 # Run the prediction on the testing dataset
-pred.test <- predict(forest1, testing)
+#pred.test <- predict(forest1, testing)
 
 # Print the results
-print(confusionMatrix(pred.test, testing$price_level))
+#print(confusionMatrix(pred.test, testing$price_level))
 ```
 
 *** =sct
