@@ -443,7 +443,7 @@ We will attempt to predict which price level the diamonds belong in and test our
 *** =instructions
 - Set seed to 42.
 - Run randomForest with the training dataset, with price_level as the outcome using all the other variables as predictors.
-- Use `plot()` to  plot `good_movies$Run` on the x-axis, `good_movies$Rating` on the y-axis and set `col` to `good_movies$Genre`.
+
 
 *** =hint
 - Remember to use price_level as the outcome using all the variables from the diamonds data set as predictors for the randomForest 
@@ -560,7 +560,7 @@ success_msg("Good work!")
 ```
 
 --- type:NormalExercise lang:r xp:100 skills:1
-## Diamonds 7
+## Cost of diamonds 7
 
 For the final exercise we will predict the price_level of the diamonds again, but with the trainging dataset. 
 
