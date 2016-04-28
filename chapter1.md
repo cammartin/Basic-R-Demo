@@ -495,14 +495,14 @@ library(randomForest)
 set.seed(42)
 
 # Run randomForest 
-forest1 <- randomForest(as.factor(price_level) ~. , data=training,
+#forest1 <- randomForest(as.factor(price_level) ~. , data=training,
                         importance = TRUE, ntrees = 4)
 
 # Predict the price levels
-pred.train <- predict(forest1, training)
+#pred.train <- predict(forest1, training)
 
 # Print prediction results
-print(confusionMatrix(pred.train, training$price_level))
+#print(confusionMatrix(pred.train, training$price_level))
 
 ```
 
