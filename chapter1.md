@@ -456,10 +456,11 @@ diamonds <- diamonds
 diamonds$price_level <- as.numeric(cut(diamonds$price,seq(from = 0, to = 50000, by = 4000)))
 diamonds$price = NULL
 library(caret)
+library(e1071)
 set.seed(42)
-#inTrain  <- createDataPartition(y=diamonds$price_level, p=0.7, list=FALSE)
-#training <- diamonds[inTrain,]
-#testing  <- diamonds[-inTrain,]
+inTrain  <- createDataPartition(y=diamonds$price_level, p=0.7, list=FALSE)
+training <- diamonds[inTrain,]
+testing  <- diamonds[-inTrain,]
 ```
 
 *** =sample_code
@@ -495,13 +496,13 @@ library(randomForest)
 set.seed(42)
 
 # Run randomForest 
-#forest1 <- randomForest(as.factor(price_level) ~. , data=training, importance = TRUE, ntrees = 4)
+forest1 <- randomForest(as.factor(price_level) ~. , data=training, importance = TRUE, ntrees = 4)
 
 # Predict the price levels
-#pred.train <- predict(forest1, training)
+pred.train <- predict(forest1, training)
 
 # Print prediction results
-#print(confusionMatrix(pred.train, training$price_level))
+print(confusionMatrix(pred.train, training$price_level))
 
 ```
 
@@ -561,14 +562,13 @@ success_msg("Good work!")
 --- type:NormalExercise lang:r xp:100 skills:1
 ## Diamonds 7
 
-For the final exercise we will predict the price_level of the diamonds using the testinf dataset. 
+For the final exercise we will predict the price_level of the diamonds again, but with the trainging dataset. 
 
-This will show how well our randomForest can determine the price_level for the diamonds in the training dataset
+This will show how well our randomForest can determine the price_level for the diamonds in the training dataset.
 
 *** =instructions
-- Check out the structure of `movie_selection`.
-- Select movies with a rating of 5 or higher. Assign the result to `good_movies`.
-- Use `plot()` to  plot `good_movies$Run` on the x-axis, `good_movies$Rating` on the y-axis and set `col` to `good_movies$Genre`.
+- Predict the `price_level` with the `predict` function.
+- Print the results using .
 
 *** =hint
 - Use `testing` in the `predict` function 
@@ -580,6 +580,7 @@ diamonds <- diamonds
 diamonds$price_level <- as.numeric(cut(diamonds$price,seq(from = 0, to = 50000, by = 4000)))
 diamonds$price = NULL
 library(caret)
+library(e1071)
 set.seed(42)
 #inTrain  <- createDataPartition(y=diamonds$price_level, p=0.7, list=FALSE)
 #training <- diamonds[inTrain,]
@@ -589,20 +590,20 @@ set.seed(42)
 *** =sample_code
 ```{r}
 # Run the prediction on the testing dataset
-#pred.test <- predict(forest1, testing)
+pred.test <- predict(forest1, testing)
 
 # Print the results
-#print(confusionMatrix(pred.test, testing$price_level))
+print(confusionMatrix(pred.test, testing$price_level))
 
 ```
 
 *** =solution
 ```{r}
 # Run the prediction on the testing dataset
-#pred.test <- predict(forest1, testing)
+pred.test <- predict(forest1, testing)
 
 # Print the results
-#print(confusionMatrix(pred.test, testing$price_level))
+print(confusionMatrix(pred.test, testing$price_level))
 ```
 
 *** =sct
