@@ -332,7 +332,7 @@ success_msg("Good work!")
 ```
 
 --- type:NormalExercise lang:r xp:100 skills:1
-## Cost of Diamonds 5
+## Cost of diamonds 5
 
 In this exercise we will split the data into a training dataset and a testing datasets in order to traing our ML algorithm to predict diamond prices. 
 
@@ -434,7 +434,7 @@ success_msg("Good work!")
 ```
 
 --- type:NormalExercise lang:r xp:100 skills:1
-## Cost of Diamonds 6
+## Cost of diamonds 6
 
 This exercise we will use the the training datasets that we created to train our randomForest to predict the cost of the diamond.  
 
@@ -546,8 +546,6 @@ test_function("set.seed")
 
 # Print prediction results
 #print(confusionMatrix(pred.train, training$price_level))
-
-
 
 
 # It's always smart to include the following line of code at the end of your SCTs
