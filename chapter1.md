@@ -457,9 +457,9 @@ diamonds$price_level <- as.numeric(cut(diamonds$price,seq(from = 0, to = 50000, 
 diamonds$price = NULL
 library(caret)
 set.seed(42)
-inTrain  <- createDataPartition(y=diamonds$price_level, p=0.7, list=FALSE)
-training <- diamonds[inTrain,]
-testing  <- diamonds[-inTrain,]
+#inTrain  <- createDataPartition(y=diamonds$price_level, p=0.7, list=FALSE)
+#training <- diamonds[inTrain,]
+#testing  <- diamonds[-inTrain,]
 ```
 
 *** =sample_code
