@@ -495,8 +495,7 @@ library(randomForest)
 set.seed(42)
 
 # Run randomForest 
-#forest1 <- randomForest(as.factor(price_level) ~. , data=training,
-                        importance = TRUE, ntrees = 4)
+#forest1 <- randomForest(as.factor(price_level) ~. , data=training, importance = TRUE, ntrees = 4)
 
 # Predict the price levels
 #pred.train <- predict(forest1, training)
